@@ -1,0 +1,17 @@
+{
+  "name": "thecountofmoney_2020_11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start npm run backend && start npm run frontend",
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm run serve"
+  },
+  "author": "",
+  "license": "ISC"
+}

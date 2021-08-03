@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  back:
+    build:  ./backend
+    container_name: "back"
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./backend/:/usr/src/app/
+      - /usr/src/app/node_modules/
+    ports:
+      - "3001:3001"
+  front:
+    build:  ./frontend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend/:/app/
+      - /app/node_modules/
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true

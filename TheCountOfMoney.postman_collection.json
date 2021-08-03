@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "16b89455-8817-4432-b943-2292d6591f0e",
+		"name": "TheCountOfMoney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crypto",
+			"item": [
+				{
+					"name": "List of crypto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/cryptos?cmids=BTC,ETH",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"cryptos"
+							],
+							"query": [
+								{
+									"key": "cmids",
+									"value": "BTC,ETH"
+								}
+							]
+						},
+						"description": "cmids: cryptocurrencies’ Ids. User MAY be logged in OR NOT. Get the list of\r\ncrypto-currencies and their info, which is at least:\r\n-> full name of the cryptocurrency.\r\n-> current price\r\n-> opening price\r\n-> lowest price of the day\r\n-> highest price of the day\r\n-> URL of the corresponding image of the cryptocurrency"
+					},
+					"response": []
+				},
+				{
+					"name": "Detail of one cryptocurrency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY5NmFhNzRjODFiZTYwYjI5NDg1NWE5YTVlZTliODY5OGUyYWJlYzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3NzAwNDY1LCJ1c2VyX2lkIjoiUm52T092N0dPWVM2dXVqR0NLclprWVNSZXlCMyIsInN1YiI6IlJudk9PdjdHT1lTNnV1akdDS3Jaa1lTUmV5QjMiLCJpYXQiOjE2MDc3MDA0NjUsImV4cCI6MTYwNzcwNDA2NSwiZW1haWwiOiJ0ZXN0MTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QxMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.N_jyLbFRj2yPXQnWRyKpbcYA4p0c2kyjSasChNK2_ltsAHRd5ejnxFXrJxYR75Ba_U-2J1IwQl5LNeWdUyiez208ivRJRaByYv6MKtKOYfwhTXB9dN0gl5wy6oiWvSCYQzFlkojOfCp_LPVa-pjwKyYwE-mAA2cIzZ57OolBheNj6nSRAb2nmDMmK8BAyeM1I-WRPqRzZFeDN1wSoNWWzSBuUQKUPB6AZZBRdLLH4kkA8Fap_zic-w8Y0LOBvN6JlfStQN5ntvdUctnle5UlJ4vQyJOH7h1nZ06ben4vv1GF6rBUP-dYBQq3gPcfpOpemS_kFYOhtTToKjz1WmKmBQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/cryptos/:cmid",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"cryptos",
+								":cmid"
+							],
+							"variable": [
+								{
+									"key": "cmid",
+									"value": "LTC"
+								}
+							]
+						},
+						"description": "cmid: cryptocurrency Id. \r\nUser MUST be logged in. \r\nReturns information about a cryptocurrency."
+					},
+					"response": []
+				},
+				{
+					"name": "History of cryptocurrency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY5NmFhNzRjODFiZTYwYjI5NDg1NWE5YTVlZTliODY5OGUyYWJlYzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3NzAwNDY1LCJ1c2VyX2lkIjoiUm52T092N0dPWVM2dXVqR0NLclprWVNSZXlCMyIsInN1YiI6IlJudk9PdjdHT1lTNnV1akdDS3Jaa1lTUmV5QjMiLCJpYXQiOjE2MDc3MDA0NjUsImV4cCI6MTYwNzcwNDA2NSwiZW1haWwiOiJ0ZXN0MTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QxMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.N_jyLbFRj2yPXQnWRyKpbcYA4p0c2kyjSasChNK2_ltsAHRd5ejnxFXrJxYR75Ba_U-2J1IwQl5LNeWdUyiez208ivRJRaByYv6MKtKOYfwhTXB9dN0gl5wy6oiWvSCYQzFlkojOfCp_LPVa-pjwKyYwE-mAA2cIzZ57OolBheNj6nSRAb2nmDMmK8BAyeM1I-WRPqRzZFeDN1wSoNWWzSBuUQKUPB6AZZBRdLLH4kkA8Fap_zic-w8Y0LOBvN6JlfStQN5ntvdUctnle5UlJ4vQyJOH7h1nZ06ben4vv1GF6rBUP-dYBQq3gPcfpOpemS_kFYOhtTToKjz1WmKmBQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/cryptos/:cmid/history/:period",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"cryptos",
+								":cmid",
+								"history",
+								":period"
+							],
+							"variable": [
+								{
+									"key": "cmid",
+									"value": "LTC"
+								},
+								{
+									"key": "period",
+									"value": "daily"
+								}
+							]
+						},
+						"description": "cmid: cryptocurrency Id. period: daily, hourly or minute.\r\nUser MUST be logged in.\r\nProvides the price history of a cryptocurrency. For each period:\r\n-> opening, highest, lowest and closing exchange rates\r\nDepending on the periods, the history is shorter or longer\r\n-> daily: Last 60 days, so 60 periods a day\r\n-> hourly: 48 last hours, so 48 periods of one hour\r\n-> minute: last 2 hours, so 60 periods of one minute"
+					},
+					"response": []
+				},
+				{
+					"name": "Create crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY5NmFhNzRjODFiZTYwYjI5NDg1NWE5YTVlZTliODY5OGUyYWJlYzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3NzAxMjI2LCJ1c2VyX2lkIjoiMUZDTmNLb3JoSVNWUUMwdnFMVUl4bWFXbjJpMiIsInN1YiI6IjFGQ05jS29yaElTVlFDMHZxTFVJeG1hV24yaTIiLCJpYXQiOjE2MDc3MDEyMjYsImV4cCI6MTYwNzcwNDgyNiwiZW1haWwiOiJ0ZXN0MzBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QzMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.At7zXcVVfwPpKT_cYxkYBeobRXN6tAsI-BZA_W3LDUL8Zl0hBos8b4D2Xl9VWeBeDsTAsJziQe_Q_AR7DEtZy8w18OOVWdkxbDM_mPk65ArWtCiFUhSfy9TAVBBE9AQuGlm-BlYCudf2d0rz9FHuzXgy80p4GtuX4_0lYRDUQePoAoVjJD-Y0rv_L2U1tHWZ7y3ttWQzyJ1ksj7gKpHcYFKiu-ZlGhAM5x9BGuH0hLWJGgzLFesujOQUiH9v6JlypRRgmMGa01cLyCt35KULLlBxbxxda7RL4cOhH-v1Yj6MpStWOWc1QKmPGftMRwiMTaFsg86hR190zJ1MD_iATA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cmCode\" : \"BTC\",\r\n    \"name\": \"Bitcoin\",\r\n    \"image\": \"https://www.cryptocompare.com/media/19633/btc.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/cryptos",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"cryptos"
+							]
+						},
+						"description": "User MUST be logged in as well as the ADMINISTRATOR.\r\nAdd a cryptocurrency to your platform. \r\nA form must be attached to the request and contain at least the cryptocurrency code, their full name and a URL for the image to which it represents."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY5NmFhNzRjODFiZTYwYjI5NDg1NWE5YTVlZTliODY5OGUyYWJlYzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3NzAxMjI2LCJ1c2VyX2lkIjoiMUZDTmNLb3JoSVNWUUMwdnFMVUl4bWFXbjJpMiIsInN1YiI6IjFGQ05jS29yaElTVlFDMHZxTFVJeG1hV24yaTIiLCJpYXQiOjE2MDc3MDEyMjYsImV4cCI6MTYwNzcwNDgyNiwiZW1haWwiOiJ0ZXN0MzBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QzMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.At7zXcVVfwPpKT_cYxkYBeobRXN6tAsI-BZA_W3LDUL8Zl0hBos8b4D2Xl9VWeBeDsTAsJziQe_Q_AR7DEtZy8w18OOVWdkxbDM_mPk65ArWtCiFUhSfy9TAVBBE9AQuGlm-BlYCudf2d0rz9FHuzXgy80p4GtuX4_0lYRDUQePoAoVjJD-Y0rv_L2U1tHWZ7y3ttWQzyJ1ksj7gKpHcYFKiu-ZlGhAM5x9BGuH0hLWJGgzLFesujOQUiH9v6JlypRRgmMGa01cLyCt35KULLlBxbxxda7RL4cOhH-v1Yj6MpStWOWc1QKmPGftMRwiMTaFsg86hR190zJ1MD_iATA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/cryptos/:cmid",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"cryptos",
+								":cmid"
+							],
+							"variable": [
+								{
+									"key": "cmid",
+									"value": "BTC"
+								}
+							]
+						},
+						"description": "cmid: cryptocurrency Id.\r\nUser MUST be logged in as well as the ADMINISTRATOR.\r\nDeletes a cryptocurrency (meaning that your platform does not know this currency anymore.)"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"Test20@gmail.com\",\n    \"password\": \"TestTest20!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/users/register",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"Test30@gmail.com\",\n    \"password\":\"TestTest30!\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/users/login",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI5ODI2ZDA5Mzc3N2NlMDA1ZTQzYTMyN2ZmMjAyNjUyMTQ1ZTk2MDQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3MDc2NTM1LCJ1c2VyX2lkIjoiUm52T092N0dPWVM2dXVqR0NLclprWVNSZXlCMyIsInN1YiI6IlJudk9PdjdHT1lTNnV1akdDS3Jaa1lTUmV5QjMiLCJpYXQiOjE2MDcwNzY1MzUsImV4cCI6MTYwNzA4MDEzNSwiZW1haWwiOiJ0ZXN0MTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QxMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.vf4tFLdu2ZcT-xA5wi0kioKmf8DvCH1y464jCD5jO95Dz7IZde1Ml-61mqX7BPbadAZsZhhqQT4GVx1pXXRv_oYm4WZbU-kWUVW7J5h7FpeGMonlNCMqGJM6QW4QyQSglgb_yIupLTTcrsOqW1DgGkkcLJHVZPt3l5DzK-MBWIKSDDWQt73rIKTr1ilfXludk6NN1ugr4vs-HyAJmucxNQCcUBEYKr8rFkv6gY4FCGcooRSbLQYvJqhyMaXFczO3IuZ7djg_vxJrkYZ6m1-Sb7dRwzVzqLBKRz81IFu1nbTUSPANsMCwUgVDM-pPBNxY-28pBCjZY3DjGv2MvFkRvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/users/logout",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (TEST ONLY)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"Test1@gmail.com\",\n    \"password\":\"TestTest1!\",\n    \"returnSecureToken\":true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBwVg9HQAZSf1UDjXQoJeNOtWI3imjDtEE",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"identitytoolkit",
+								"v3",
+								"relyingparty",
+								"verifyPassword"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "AIzaSyBwVg9HQAZSf1UDjXQoJeNOtWI3imjDtEE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI5ODI2ZDA5Mzc3N2NlMDA1ZTQzYTMyN2ZmMjAyNjUyMTQ1ZTk2MDQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA3MDc2NTM1LCJ1c2VyX2lkIjoiUm52T092N0dPWVM2dXVqR0NLclprWVNSZXlCMyIsInN1YiI6IlJudk9PdjdHT1lTNnV1akdDS3Jaa1lTUmV5QjMiLCJpYXQiOjE2MDcwNzY1MzUsImV4cCI6MTYwNzA4MDEzNSwiZW1haWwiOiJ0ZXN0MTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QxMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.vf4tFLdu2ZcT-xA5wi0kioKmf8DvCH1y464jCD5jO95Dz7IZde1Ml-61mqX7BPbadAZsZhhqQT4GVx1pXXRv_oYm4WZbU-kWUVW7J5h7FpeGMonlNCMqGJM6QW4QyQSglgb_yIupLTTcrsOqW1DgGkkcLJHVZPt3l5DzK-MBWIKSDDWQt73rIKTr1ilfXludk6NN1ugr4vs-HyAJmucxNQCcUBEYKr8rFkv6gY4FCGcooRSbLQYvJqhyMaXFczO3IuZ7djg_vxJrkYZ6m1-Sb7dRwzVzqLBKRz81IFu1nbTUSPANsMCwUgVDM-pPBNxY-28pBCjZY3DjGv2MvFkRvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/users/profile",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify user profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNlNTQyN2NkMzUxMDhiNDc2NjUyMDhlYTA0YjhjYTZjODZkMDljOTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGhlY291bnRvZm1vbmV5LTExIiwiYXVkIjoidGhlY291bnRvZm1vbmV5LTExIiwiYXV0aF90aW1lIjoxNjA1ODgzNjkwLCJ1c2VyX2lkIjoiUm52T092N0dPWVM2dXVqR0NLclprWVNSZXlCMyIsInN1YiI6IlJudk9PdjdHT1lTNnV1akdDS3Jaa1lTUmV5QjMiLCJpYXQiOjE2MDU4ODM2OTAsImV4cCI6MTYwNTg4NzI5MCwiZW1haWwiOiJ0ZXN0MTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInRlc3QxMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.tbDTS73aDoiVuQOHidAnF55X9PH6eNVKXuiIAm8V-CaYovFTdRJlCpqlNns3EUS9kLiGyuttO9fnYdN9l512lYOKkVP090ZJUjMBaHGuNRLTR0PCxhGJW3c0ExrLk4q-7-0VvltIrUGYfazhK5NnuoBThf9HAQs8d0N-PMWgTHt8Q1U1XJV49TREPr0OJ3mCzdUn7KGfiU9uzVlTRBm_sU8mvelp22kQLs94VJ-aGa-wqAJla3Q1QBEGxG-mXLUdoM5673CYPC4pdkl2LDFheKL1_hKqFtvWRnypE3lmC-jz3y04mJhY2F018Vcgl8ClesxEG1yFRN42gpX8Qr8giw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userSettings\": {\n            \"nickname\": \"test100@gmail.com\",\n            \"default_currency\": \"EUR\",\n            \"crypto_currencies\": [\"EUR\", \"DOL\"],\n            \"list_keywords\": [\"Money\", \"Rich\", \"Omg\", \"Wowo\"]\n        }   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{IP}}:{{PORT}}/users/profile",
+							"host": [
+								"{{IP}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "04074fb9-e5ea-442f-87df-d12dae3020a3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d826d15-1d2b-4a10-8a08-73ff66db1c04",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}:{{PORT}}/healthcheck",
+					"host": [
+						"{{IP}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatabaseCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}:{{PORT}}/databaseCheck",
+					"host": [
+						"{{IP}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"databaseCheck"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
