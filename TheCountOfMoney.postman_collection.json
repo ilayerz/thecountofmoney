@@ -291,7 +291,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBwVg9HQAZSf1UDjXQoJeNOtWI3imjDtEE",
+							"raw": "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -307,7 +307,7 @@
 							"query": [
 								{
 									"key": "key",
-									"value": "AIzaSyBwVg9HQAZSf1UDjXQoJeNOtWI3imjDtEE"
+									"value": ""
 								}
 							]
 						}
