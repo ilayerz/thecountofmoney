@@ -10,7 +10,7 @@ exports.login = (request, response) => {
         returnSecureToken: true,
     };
 
-    axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBwVg9HQAZSf1UDjXQoJeNOtWI3imjDtEE', params)
+    axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=', params)
         .then(function (res) {
             response.status(200).json({
                 message: "User login",
